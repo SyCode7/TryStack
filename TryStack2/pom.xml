@@ -59,7 +59,7 @@
       <groupId>org.apache.jclouds.labs</groupId>
       <artifactId>openstack-neutron</artifactId>
       <version>${jclouds.version}</version>
-    </dependency>
+    </dependency>  
     <!-- 3rd party dependencies -->
     <dependency>
       <groupId>ch.qos.logback</groupId>
