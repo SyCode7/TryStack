@@ -10,6 +10,8 @@ import static com.google.common.io.BaseEncoding.base16;
 import static java.lang.String.format;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
+import java.io.IOException;
+
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
@@ -25,6 +27,12 @@ public class TemporaryURLSigner {
    public static TemporaryURLSigner checkApiEvery(final AccountApi api, long seconds) {
       Supplier<String> keySupplier = memoizeWithExpiration(new TemporaryUrlKeyFromAccount(api), seconds, SECONDS);
       return new TemporaryURLSigner(keySupplier);
+      
+      public static main(String[] args) throws IOException {
+    	  TemoraryURLSigner temoraryURLSigner = new TemoraryURLSigner();
+    	  
+    	  
+      }
    }
 
    private final Supplier<String> keySupplier;

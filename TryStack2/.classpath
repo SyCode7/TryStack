@@ -34,14 +34,5 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Kennedy.Torkura/Downloads/swift-client-3.2.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Kennedy.Torkura/Downloads/swift-model-3.2.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Kennedy.Torkura/.m2/repository/org/apache/jclouds/labs/openstack-swift/1.8.0/openstack-swift-1.8.0.jar">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="maven.groupId" value="org.apache.jclouds.labs"/>
-			<attribute name="maven.artifactId" value="openstack-swift"/>
-			<attribute name="maven.version" value="1.8.0"/>
-			<attribute name="maven.scope" value="compile"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
