@@ -1,3 +1,4 @@
+package com.openstack.jclouds;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.io.Closeables;
