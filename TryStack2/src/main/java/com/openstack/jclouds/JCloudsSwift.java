@@ -13,6 +13,7 @@ import org.jclouds.openstack.swift.v1.features.ContainerApi;
 import org.jclouds.openstack.swift.v1.features.ObjectApi;
 import org.jclouds.openstack.swift.v1.options.CreateContainerOptions;
 import org.jclouds.openstack.swift.v1.options.PutOptions;
+import org.jclouds.openstack.swift.v1.features.*;
 
 import java.io.Closeable;
 import java.io.FileReader;
@@ -23,8 +24,8 @@ import static com.google.common.io.ByteSource.wrap;
 import static org.jclouds.io.Payloads.newByteSourcePayload;
 
 public class JCloudsSwift implements Closeable {
-   public static final String CONTAINER_NAME = "SOMETHING_FUNNY2";
-   public static final String OBJECT_NAME = "premier.txt";
+   public static final String CONTAINER_NAME = "UPDATING";
+   public static final String OBJECT_NAME = "prepare.txt";
 
    private SwiftApi swiftApi;
 
@@ -61,13 +62,13 @@ public class JCloudsSwift implements Closeable {
    private void createContainer() {
       System.out.println("Create Container");
 
-      ContainerApi containerApi = swiftApi.getContainerApiForRegion("RegionOne");
+      ContainerApi containerApi = swiftApi.containerApiInRegion("RegionOne");
       CreateContainerOptions options = CreateContainerOptions.Builder
             .metadata(ImmutableMap.of(
                   "key1", "value1",
                   "key2", "value2"));
 
-      containerApi.create(CONTAINER_NAME);
+      containerApi.create(CONTAINER_NAME, options);
 
       System.out.println("  " + CONTAINER_NAME);
    }
@@ -75,12 +76,9 @@ public class JCloudsSwift implements Closeable {
    private void uploadObjectFromString() {
       System.out.println("Upload Object From String");
 
-      ObjectApi objectApi = swiftApi.getObjectApiForRegionAndContainer("RegionOne", CONTAINER_NAME);
-      
-      
-
-      
-      Payload payload = newByteSourcePayload(wrap("Hello Z Xz xZ xX ZXWorld".getBytes()));
+      ObjectApi objectApi = swiftApi.objectApiInRegionForContainer("RegionOne", CONTAINER_NAME);
+               
+      Payload payload = newByteSourcePayload(wrap("the clouyds are getting secure".getBytes()));
 
       objectApi.put(OBJECT_NAME, payload, PutOptions.Builder.metadata(ImmutableMap.of("key1", "value1")));
 
@@ -90,7 +88,7 @@ public class JCloudsSwift implements Closeable {
    private void listContainers() {
       System.out.println("List Containers");
 
-      ContainerApi containerApi = swiftApi.getContainerApiForRegion("RegionOne");
+      ContainerApi containerApi = swiftApi.containerApiInRegion("RegionOne");
       Set<Container> containers = containerApi.list().toSet();
 
       for (Container container : containers) {
