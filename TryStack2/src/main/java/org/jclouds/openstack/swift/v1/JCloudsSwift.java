@@ -47,10 +47,7 @@ public class JCloudsSwift implements Closeable {
 	
 }
 
-
 TemporaryURLSigner signedURL = new TemporaryURLSigner(null);
-   
-  
 
 public JCloudsSwift() {
       Iterable<Module> modules = ImmutableSet.<Module>of(
@@ -102,8 +99,6 @@ public JCloudsSwift() {
       for (Container container : containers) {
          System.out.println("  " + container);
       }
-      
-      
       
    }
 
