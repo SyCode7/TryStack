@@ -49,8 +49,8 @@ public class JCloudsSwift implements Closeable {
             new SLF4JLoggingModule());
 
       String provider = "openstack-swift";
-      String identity = "facebook633532755:facebook633532755"; // tenantName:userName
-      String credential = "8PgaziE62RadEdUF";
+      String identity = "facebook5:www5"; // tenantName:userName
+      String credential = "try@#$^$^";
 
       swiftApi = ContextBuilder.newBuilder(provider)
             .endpoint("http://x86.trystack.org:5000/v2.0/")
